@@ -1,0 +1,13 @@
+baseurl = "/docs/"
+languageCode = "en-us"
+title = "LGTM"
+theme = "default"
+publishdir = "public/docs"
+
+[params]
+	description = "User documentation for lgtm.co"
+	author = "Brad Rydzewski"
+
+[params.google_analytics]
+	hostname = "lgtm.co"
+	token = "UA-71116539-1"

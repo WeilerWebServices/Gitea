@@ -1,0 +1,13 @@
+image: gitea/test-openldap:latest
+manifests:
+  -
+    image: gitea/test-openldap:latest-amd64
+    platform:
+      architecture: amd64
+      os: linux
+  -
+    image: gitea/test-openldap:latest-arm64
+    platform:
+      architecture: arm64
+      os: linux
+      variant: v8

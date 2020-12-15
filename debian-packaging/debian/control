@@ -1,0 +1,100 @@
+Source: gitea
+Section: non-free/devel
+Priority: optional
+Maintainer: Debian Go Packaging Team <pkg-go-maintainers@lists.alioth.debian.org>
+Uploaders: Michael Lustfield <michael@lustfield.net>
+Build-Depends: debhelper (>= 11),
+               dh-golang,
+               golang-any,
+               libpam0g-dev,
+               python
+Standards-Version: 4.1.4
+Homepage: https://github.com/go-gitea/gitea
+Vcs-Browser: https://github.com/go-gitea/debian-packaging
+Vcs-Git: https://github.com/go-gitea/debian-packaging.git
+Testsuite: autopkgtest-pkg-go
+XS-Go-Import-Path: code.gitea.io/gitea
+XS-Autobuild: yes
+
+Package: gitea
+Architecture: any
+Built-Using: ${misc:Built-Using}
+Pre-Depends: debconf
+Depends: adduser,
+         git,
+         gitea-common (= ${source:Version}),
+         libcap2-bin,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Description: Painless self-hosted git service
+ Gitea is a self-hosted git service aiming to provide a full suite of
+ features similar to Gitlab or Github. It aims to be light weight,
+ feature rich, and easily maintained.
+ .
+ Features:
+   * User dashboard:
+     + Context switching (organization / current user)
+     + Activity timeline
+     + Repository list
+   * Issues dashboard
+   * Pull requests
+   * Notification (web / email)
+   * Repository types
+     + Mirror
+     + Normal
+     + Migrated
+   * Custom templates
+   * TLS support
+   * Detailed logging
+   * Database support:
+     + MySQL
+     + PostgreSQL
+     + SQLite3
+     + MSSQL
+   * Admin panel(s)
+     + Repository/Organization/User management
+     + Statisticts
+     + Server status
+     + System notices
+   * Authentication sources:
+     + OAuth
+     + PAM
+     + LDAP
+     + SMTP
+   * Multi-language support
+   * Release management / issue (ticket) tracking
+     + Milestones
+     + Labels
+     + Assign
+     + Search / sort / filter
+     + Comments / attachments
+     + Pull requests
+   * Project wiki
+   * Per-project settings
+ .
+ Documentation: https://docs.gitea.io/en-US/
+
+Package: gitea-common
+Architecture: all
+Multi-Arch: foreign
+Depends: lsb-base (>= 3.0-6),
+         ${misc:Depends}
+Description: Painless self-hosted git service - common files
+ Gitea is a self-hosted git service aiming to provide a full suite of
+ features similar to Gitlab or Github. It aims to be light weight,
+ feature rich, and easily maintained.
+ .
+ This package contains base configuration files used by all architectures.
+
+Package: golang-code.gitea-gitea-dev
+Architecture: all
+Depends: dh-golang,
+         golang-any,
+         libpam0g-dev,
+         ${misc:Depends}
+Description: Painless self-hosted git service -- source
+ Gitea is a self-hosted git service aiming to provide a full suite of
+ features similar to Gitlab or Github. It aims to be light weight,
+ feature rich, and easily maintained.
+ .
+ This package contains the source.

@@ -1,0 +1,5 @@
+# pack-refs with: peeled fully-peeled sorted 
+70422bd2f44fa6aacb1f1e4a1f822b2ca3097326 refs/remotes/origin/lunny/test_drone
+9c14a8baea7543fe1c79248f391fe05aadd3ac94 refs/remotes/origin/master
+4b398b40ed35929e02394f6ed0a3dae742aab7b6 refs/remotes/origin/rel-1.2.3
+22820443f99b519e47904112061a1516854985be refs/remotes/origin/release/v1.0

@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+40b3765a0be320074594added38fda289c3df0c6 refs/remotes/origin/appleboy-patch-1
+ad55d7524f6f07f1b8cc7c80b59f94f99a7ae311 refs/remotes/origin/bkcsoft/regression-label
+be319633bd01d3eb8bc7a122093e9ce1a9be0162 refs/remotes/origin/bkcsoft/upgrade-drone
+7af600ad2ffc5983603014ab77895bcb2e1b0dfd refs/remotes/origin/feature/prometheus
+4bad11c63e9a6a969b52491fa96e59e481aefac3 refs/remotes/origin/master

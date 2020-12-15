@@ -1,0 +1,59 @@
+baseurl: https://code.gitea.io/
+languageCode: en-us
+title: Code
+theme: gitea
+
+defaultContentLanguage: en-us
+defaultContentLanguageInSubdir: true
+enableMissingTranslationPlaceholders: true
+
+permalinks:
+  post: /:year/:month/:title/
+  doc: /:slug/
+  page: /:slug/
+  default: /:slug/
+
+params:
+  description: Git with a cup of tea
+  author: The Gitea Authors
+  website: https://code.gitea.io
+
+menu:
+  page:
+    - name: Website
+      url: https://gitea.io/en-us/
+      weight: 10
+      pre: home
+    - name: Docs
+      url: https://docs.gitea.io/en-us/
+      weight: 20
+      pre: question
+    - name: API
+      url: https://try.gitea.io/api/swagger
+      weight: 45
+      pre: plug
+    - name: Blog
+      url: https://blog.gitea.io/
+      weight: 30
+      pre: rss
+    - name: Code
+      url: /
+      weight: 40
+      pre: code
+      post: active
+    - name: Downloads
+      url: https://dl.gitea.io/
+      weight: 50
+      pre: download
+    - name: GitHub
+      url: https://github.com/go-gitea/
+      weight: 60
+      pre: github
+    - name: Discord Chat
+      url: https://discord.gg/NsatcWJ
+      weight: 70
+      pre: comment
+    - name: Forum
+      url: https://discourse.gitea.io/
+      weight: 80
+      pre: group

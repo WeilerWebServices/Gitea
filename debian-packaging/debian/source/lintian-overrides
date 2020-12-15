@@ -1,0 +1,7 @@
+# upstream does not sign releases
+gitea source: debian-watch-does-not-check-gpg-signature
+
+# Reasons this package is currently in non-free
+gitea source: source-contains-prebuilt-javascript-object
+# Patches are needed for using packaged dependencies
+gitea source: patch-file-present-but-not-mentioned-in-series

@@ -1,0 +1,4 @@
+# pack-refs with: peeled fully-peeled sorted 
+a50103b5f21793a7c9a62e7412f7abe8befc3f7c refs/remotes/origin/csp-header
+66730a6adffc16a7214dfcc37a140da55b10a479 refs/remotes/origin/master
+25ab4c31f73b1bffa9d4286c41c7b71e33e7b940 refs/remotes/origin/release/v1.0

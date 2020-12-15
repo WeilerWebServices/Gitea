@@ -1,0 +1,19 @@
+{{ partial "header.html" . }}
+{{ partial "navbar.html" . }}
+
+<section class="section">
+	<div class="container is-centered page">
+		<div class="columns">
+			<div class="column is-one-quarter">
+				{{ partial "menu" . }}
+			</div>
+			<div class="column is-three-quarters">
+				<div class="content">
+					{{ .Content }}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{{ partial "footer.html" . }}

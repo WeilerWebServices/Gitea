@@ -1,0 +1,29 @@
+build:
+  image: golang:1.5
+  environment:
+    - GO15VENDOREXPERIMENT=1
+  commands:
+
+    # compile lgtm for all architectures
+    - GOOS=linux   GOARCH=amd64 go build -o ./release/linux_amd64/lgtm   github.com/lgtmco/lgtm-cli/lgtm
+    - GOOS=linux   GOARCH=386   go build -o ./release/linux_386/lgtm     github.com/lgtmco/lgtm-cli/lgtm
+    - GOOS=linux   GOARCH=arm   go build -o ./release/linux_arm/lgtm     github.com/lgtmco/lgtm-cli/lgtm
+    - GOOS=darwin  GOARCH=amd64 go build -o ./release/darwin_amd64/lgtm  github.com/lgtmco/lgtm-cli/lgtm
+    - GOOS=windows GOARCH=386   go build -o ./release/windows_386/lgtm   github.com/lgtmco/lgtm-cli/lgtm
+    - GOOS=windows GOARCH=amd64 go build -o ./release/windows_amd64/lgtm github.com/lgtmco/lgtm-cli/lgtm
+
+    # tar binary files prior to upload
+    - tar -cvzf release/lgtm_linux_amd64.tar.gz   --directory=release/linux_amd64   lgtm
+    - tar -cvzf release/lgtm_linux_386.tar.gz     --directory=release/linux_386     lgtm
+    - tar -cvzf release/lgtm_linux_arm.tar.gz     --directory=release/linux_arm     lgtm
+    - tar -cvzf release/lgtm_darwin_amd64.tar.gz  --directory=release/darwin_amd64  lgtm
+    - tar -cvzf release/lgtm_windows_386.tar.gz   --directory=release/windows_386   lgtm
+    - tar -cvzf release/lgtm_windows_amd64.tar.gz --directory=release/windows_amd64 lgtm
+
+publish:
+  github_release:
+    api_key: $$GITHUB_TOKEN
+    files:
+      - release/*.tar.gz
+    when:
+      event: tag

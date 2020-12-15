@@ -1,0 +1,32 @@
+dn: cn=Hermes Conrad,ou=people,dc=planetexpress,dc=com
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: inetOrgPerson
+objectClass: ldapPublicKey
+cn: Hermes Conrad
+sn: Conrad
+description: Human
+employeeType: Bureaucrat
+employeeType: Accountant
+givenName: Hermes
+mail: hermes@planetexpress.com
+ou: Office Management
+uid: hermes
+userPassword:: e3NzaGF9M3UzcUdCSmFMc2tiUEg0OVJrYlFtUk9HTktFb1lOUXZkU2lOZmc9P
+ Q==
+sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC8Fk93z/DLVBj4gHUw3+LOh
+ aIAwCmmXHSfCOlD9Pa1NUTDgURf32m//tRBSDn6o9BTsaHkXyOdTYUF6mXxfwdHaGx3bfXDnUQE
+ X/1J88x0LL6p+sigrGc9/2OUZtL5Af4lNPgbUl1U15U2hhh/Nv9URObSPIbAxURIIArrfYMgDNc
+ UoA/BA4dxnk2lc9Mc/Fozkx7N7bNVT1GOAtosR5Y+ukdTwJFzKmrH6hBAzRKVIxfa4XT+cOmOYW
+ 4kL/ca/owHQURxqI4VMKcLEkEYdwANRt1/HJL5kJkpDPQF2gmrH+XNs46E3zicMIzEzKa53gks9
+ hiyRt/AT7UMwXbmSbGv hermes@pc
+sshPublicKey: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDOajx6+YcZCdu97aJiC0cIo
+ Okk63kp8mv3ZAOrC0m0g6kibiPmCVmo/ITegtu58boy0CMpmwD/thk36FFdy4Ig5ZNMCRv+9m6P
+ tIE06pvUB6rtYfgzwMc+G3Wibs/zsb7XUwl6Cl/JtsYyeXpdlzIgSt7SzrWf+BVQxOAtJD7bjLX
+ tvQhjHbBO21Zh/Xp0kKlMWlzhSSs5AEjUY0jRAXMPkXPzf8dqhd6JKpdxvk1fjc14BWISZqgeiL
+ pUUL+hk+md5SB31NEKtTkx6nQ5QbXe9BSwu0CtxjAq1vaHwL3bLNL7NFArrltIfOh0BDSADOVfM
+ J6nSnRgv4uk50gnUr2F hermes@laptop
+sshPublicKey: ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdH
+ AyNTYAAABBBH+EtG8OXSsgX9sRldi86H0lBEY/vZAeejxHxDjG1rF+SYF7piCA4C6vLmLKAYz6a
+ WueK0QNvMVlR7SOXESnXEs= hermes@server

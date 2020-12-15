@@ -1,0 +1,33 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+# Build flags (excluded: tidb bindata)
+TAGS := sqlite pam
+
+# PIE builds (-buildmode=pie) need -pkgdir (abs path ref)
+GOPATH ?= $(CURDIR)/obj-$(DEB_TARGET_GNU_TYPE)
+GOCACHE ?= $(CURDIR)/.cache
+LDFLAGS = -X 'main.Tags=$(TAGS)' -extldflags=-Wl,-z,relro,-z,now
+
+export GOPATH GOCACHE LDFLAGS TAGS
+
+%:
+	dh $@ --buildsystem=golang --with=golang
+
+override_dh_auto_build: #static_swagger
+	go install -v -p 2 \
+		-buildmode=pie \
+		-pkgdir="$(GOPATH)" \
+		-ldflags="$(LDFLAGS)" \
+		-tags="$(TAGS)" \
+		code.gitea.io/gitea
+
+static_swagger:
+	# Build a static swagger api documentation page
+	# Update script:
+	#   wget https://raw.githubusercontent.com/MTecknology/static_swagger-ui/master/build.py -O debian/helpers/swagger_build.py
+	#   sed -i '/REMOVE/,/REMOVE/d' debian/helpers/swagger_build.py
+	SWAGGER_SRC=public/swagger.v1.json SWAGGER_DST=templates/swagger.tmpl python debian/helpers/swagger_build.py
+
+# Tests are broken in debian build environments.
+override_dh_auto_test:

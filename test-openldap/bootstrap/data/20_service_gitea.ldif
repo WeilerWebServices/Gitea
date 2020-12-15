@@ -1,0 +1,7 @@
+dn: uid=gitea,ou=service,dc=planetexpress,dc=com
+objectClass: top
+objectClass: account
+objectClass: simpleSecurityObject
+description: Service account for integration with Gitea
+uid: gitea
+userPassword:: e1NTSEF9Um0zVzF3UE51QUdkTEhmTm9NeGhEb3VuMEdZMEV0RHc=

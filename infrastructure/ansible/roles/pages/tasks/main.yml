@@ -1,0 +1,45 @@
+- name: dirs
+  with_items:
+    - /compose/pages
+  file:
+    path: '{{ item }}'
+    state: directory
+  tags:
+    - pages
+
+- name: compose
+  notify:
+    - restart pages
+  template:
+    src: compose.j2
+    dest: /compose/pages/docker-compose.yml
+  tags:
+    - pages
+
+- name: default
+  notify:
+    - restart pages
+  template:
+    src: default.j2
+    dest: /compose/pages/.env
+  tags:
+    - pages
+
+- name: service
+  notify:
+    - restart pages
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/pages.service
+  tags:
+    - pages
+
+- name: start
+  systemd:
+    name: pages
+    state: started
+    daemon_reload: yes
+    masked: no
+    enabled: yes
+  tags:
+    - pages

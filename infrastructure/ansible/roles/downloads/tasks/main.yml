@@ -1,0 +1,45 @@
+- name: dirs
+  with_items:
+    - /compose/downloads
+  file:
+    path: '{{ item }}'
+    state: directory
+  tags:
+    - downloads
+
+- name: compose
+  notify:
+    - restart downloads
+  template:
+    src: compose.j2
+    dest: /compose/downloads/docker-compose.yml
+  tags:
+    - downloads
+
+- name: default
+  notify:
+    - restart downloads
+  template:
+    src: default.j2
+    dest: /compose/downloads/.env
+  tags:
+    - downloads
+
+- name: service
+  notify:
+    - restart downloads
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/downloads.service
+  tags:
+    - downloads
+
+- name: start
+  systemd:
+    name: downloads
+    state: started
+    daemon_reload: yes
+    masked: no
+    enabled: yes
+  tags:
+    - downloads

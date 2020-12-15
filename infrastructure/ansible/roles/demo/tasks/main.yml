@@ -1,0 +1,45 @@
+- name: dirs
+  with_items:
+    - /compose/demo
+  file:
+    path: '{{ item }}'
+    state: directory
+  tags:
+    - demo
+
+- name: compose
+  notify:
+    - restart demo
+  template:
+    src: compose.j2
+    dest: /compose/demo/docker-compose.yml
+  tags:
+    - demo
+
+- name: default
+  notify:
+    - restart demo
+  template:
+    src: default.j2
+    dest: /compose/demo/.env
+  tags:
+    - demo
+
+- name: service
+  notify:
+    - restart demo
+  template:
+    src: service.j2
+    dest: /etc/systemd/system/demo.service
+  tags:
+    - demo
+
+- name: start
+  systemd:
+    name: demo
+    state: started
+    daemon_reload: yes
+    masked: no
+    enabled: yes
+  tags:
+    - demo

@@ -1,0 +1,37 @@
+workspace:
+  base: /srv/app
+  path: src
+
+branches:
+  - master
+
+clone:
+  git:
+    image: plugins/git:1
+    depth: 50
+    tags: true
+
+pipeline:
+  build:
+    image: webhippie/hugo:latest
+    pull: true
+    commands:
+      - make clean
+      - make build
+
+  publish:
+    image: lucap/drone-netlify:latest
+    pull: true
+    secrets: [ netlify_token ]
+    site_id: 43f026dd-02e6-4cd9-846c-f8a1539d3570
+    path: public/
+    when:
+      event: [ push ]
+
+  discord:
+    image: appleboy/drone-discord:1
+    pull: true
+    secrets: [ discord_webhook_id, discord_webhook_token ]
+    when:
+      event: [ push, tag ]
+      status: [ changed, failure ]

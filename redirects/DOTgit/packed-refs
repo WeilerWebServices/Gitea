@@ -1,0 +1,6 @@
+# pack-refs with: peeled fully-peeled sorted 
+edbbf5f4e69ae77925dfb4adff6bc8b9d513bb49 refs/remotes/origin/csp-fonts
+03ffffadaf0363a5f80b2413a9005864e857407a refs/remotes/origin/csp-header
+4cdad5a8c766d18f7da16658df4e7d72ffb71914 refs/remotes/origin/master
+b9cf77d8b112c0508b9b01a55ede5ae7e3699b2c refs/remotes/origin/release/v1.0
+bc2ac3964d16e82babbbd52bc447174714790881 refs/remotes/origin/techknowlogick-patch-4

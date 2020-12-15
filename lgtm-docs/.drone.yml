@@ -1,0 +1,13 @@
+pipeline:
+  build:
+    image: jojomi/hugo
+    commands: hugo
+
+  docker:
+    image: docker
+    repo: lgtm/docs
+    tag: [1.0.0, latest]
+    when:
+      branch: master
+      event: push
+

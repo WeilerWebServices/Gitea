@@ -1,0 +1,18 @@
+[Unit]
+Description=Pages
+
+Requires=docker.service
+After=docker.service
+
+[Service]
+Restart=always
+WorkingDirectory=/compose/pages
+
+ExecStop=/bin/sh -c '/usr/local/bin/docker-compose kill || true'
+ExecStopPost=/bin/sh -c '/usr/local/bin/docker-compose down --remove-orphans || true'
+
+ExecStartPre=/bin/sh -c '/usr/local/bin/docker-compose pull --ignore-pull-failures || true'
+ExecStart=/usr/local/bin/docker-compose up --abort-on-container-exit --remove-orphans
+
+[Install]
+WantedBy=multi-user.target
